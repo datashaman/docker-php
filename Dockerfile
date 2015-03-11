@@ -10,9 +10,6 @@ RUN apt-get clean
 
 COPY etc/nginx.conf /etc/nginx/sites-available/default
 
-RUN sed -i "1i daemon off;" /etc/nginx/nginx.conf
-RUN sed -i "s#root /usr/share/nginx/html;#root /var/www/public;#" /etc/nginx/sites-available/default
-
 EXPOSE 80
 
 CMD service php5-fpm start && nginx
